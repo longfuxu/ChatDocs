@@ -45,7 +45,7 @@ PINECONE_INDEX_NAME=
 
 **This repo can load multiple PDF files**
 
-1. Inside `docs` folder, add your pdf files or folders that contain pdf files.
+1. Create a `docs`folder if it's not there. Inside `docs` folder, add your pdf files or folders that contain pdf files.
 In this step, make sure you put files from different topic into deifferent subfolder, and put the embeddings into those corresponding subfolders, and also retrieval specific infomation from those folders
 - Put your docs from different field into different subfolders, such as sci, low,literature
 - Inside the `scipts` folder, edit the `ingest-data.ts` file, make sure in line 10 change to your specific file`const filePath = 'docs/sci'`, to avoid potential overwrite previous documents
