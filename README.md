@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GPT-4 & LangChain - Create a ChatGPT Chatbot for Your PDF Files
 
 Use the new GPT-4 api to build a chatGPT chatbot for multiple Large PDF files.
@@ -89,3 +90,7 @@ This repo is a fork from [gpt4-pdf-chatbot-langchain
 ](https://github.com/mayooear/gpt4-pdf-chatbot-langchain/tree/feat/add-directory-loader), with modified personal prefernece
 
 Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
+=======
+# ChatDocs
+Chat with your documents with the super power of LLM
+>>>>>>> origin/main
