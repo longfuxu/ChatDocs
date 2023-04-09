@@ -41,4 +41,5 @@ next-env.d.ts
 
 # personal info
 /public/.png
-/docs/.pdf
+/docs/grant/.pdf
+/doc/grant/.pdf
