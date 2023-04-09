@@ -4,14 +4,6 @@ Use the new GPT-4 api to build a chatGPT chatbot for multiple Large PDF files.
 
 Tech stack used includes LangChain, Pinecone, Typescript, Openai, and Next.js. LangChain is a framework that makes it easier to build scalable AI/LLM apps and chatbots. Pinecone is a vectorstore for storing embeddings and your PDF in text to later retrieve similar docs.
 
-[Tutorial video](https://www.youtube.com/watch?v=ih9PBGVVOO4)
-
-[Join the discord if you have questions](https://discord.gg/E4Mc77qwjm)
-
-The visual guide of this repo and tutorial is in the `visual guide` folder.
-
-**If you run into errors, please review the troubleshooting section further down this page.**
-
 ## Development
 
 1. Clone the repo
@@ -23,8 +15,9 @@ git clone [github https url]
 2. Install packages
 
 ```
-pnpm install
+pnpm install 
 ```
+You probably need to install pnpm and npm first
 
 3. Set up your `.env` file
 
@@ -43,16 +36,19 @@ PINECONE_INDEX_NAME=
 
 - Visit [openai](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key) to retrieve API keys and insert into your `.env` file.
 - Visit [pinecone](https://pinecone.io/) to create and retrieve your API keys, and also retrieve your environment and index name from the dashboard.
+- When create your index in pinecone, make sure to set the Dimenstion as 1536, as this is the dimention that OpenAI embedding model will use
+- You need to wait until the Index initialize -> ready, you can ingest your date, otherwise you will get error.[https://github.com/mayooear/gpt4-pdf-chatbot-langchain/issues/97]
 
-4. In the `config` folder, replace the `PINECONE_NAME_SPACE` with a `namespace` where you'd like to store your embeddings on Pinecone when you run `pnpm run ingest`. This namespace will later be used for queries and retrieval.
-
-5. In `utils/makechain.ts` chain change the `QA_PROMPT` for your own usecase. Change `modelName` in `new OpenAIChat` to `gpt-3.5-turbo`, if you don't have access to `gpt-4`. Please verify outside this repo that you have access to `gpt-4`, otherwise the application will not work with it.
+4. In `utils/makechain.ts` chain change the `QA_PROMPT` for your own usecase. Change `modelName` in `new OpenAIChat` to `gpt-3.5-turbo` or `gpt-4`
 
 ## Convert your PDF files to embeddings
 
 **This repo can load multiple PDF files**
 
 1. Inside `docs` folder, add your pdf files or folders that contain pdf files.
+- Put your docs from different field into different subfolders, such as sci, low,literature
+- Inside the `scipts` folder, edit the `ingest-data.ts` file, make sure in line 10 change to your specific file`const filePath = 'docs/sci'`, to avoid potential overwrite previous documents
+- In the `config` folder, replace the `PINECONE_NAME_SPACE` with a `namespace` where you'd like to store your embeddings on Pinecone when you run `pnpm run ingest`. This namespace will later be used for queries and retrieval. *this is quite important if you only want to retrival a specific domain of knowledge*
 
 2. Run the script `npm run ingest` to 'ingest' and embed your docs. If you run into errors troubleshoot below.
 
@@ -88,5 +84,8 @@ In general, keep an eye out in the `issues` and `discussions` section of this re
 - Retry from scratch with a new Pinecone project, index, and cloned repo.
 
 ## Credit
+
+This repo is a fork from [gpt4-pdf-chatbot-langchain
+](https://github.com/mayooear/gpt4-pdf-chatbot-langchain/tree/feat/add-directory-loader), with modified personal prefernece
 
 Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
