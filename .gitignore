@@ -40,5 +40,6 @@ next-env.d.ts
 /Notion_DB
 
 # personal info
-/public
-/docs
+/public/*.png
+/docs/grant/*.pdf
+/docs/sci/*.pdf
