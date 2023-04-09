@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # GPT-4 & LangChain - Create a ChatGPT Chatbot for Your PDF Files
 
 Use the new GPT-4 api to build a chatGPT chatbot for multiple Large PDF files.
@@ -47,6 +46,7 @@ PINECONE_INDEX_NAME=
 **This repo can load multiple PDF files**
 
 1. Inside `docs` folder, add your pdf files or folders that contain pdf files.
+In this step, make sure you put files from different topic into deifferent subfolder, and put the embeddings into those corresponding subfolders, and also retrieval specific infomation from those folders
 - Put your docs from different field into different subfolders, such as sci, low,literature
 - Inside the `scipts` folder, edit the `ingest-data.ts` file, make sure in line 10 change to your specific file`const filePath = 'docs/sci'`, to avoid potential overwrite previous documents
 - In the `config` folder, replace the `PINECONE_NAME_SPACE` with a `namespace` where you'd like to store your embeddings on Pinecone when you run `pnpm run ingest`. This namespace will later be used for queries and retrieval. *this is quite important if you only want to retrival a specific domain of knowledge*
@@ -90,7 +90,3 @@ This repo is a fork from [gpt4-pdf-chatbot-langchain
 ](https://github.com/mayooear/gpt4-pdf-chatbot-langchain/tree/feat/add-directory-loader), with modified personal prefernece
 
 Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
-=======
-# ChatDocs
-Chat with your documents with the super power of LLM
->>>>>>> origin/main
