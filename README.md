@@ -50,6 +50,7 @@ In this step, make sure you put files from different topic into deifferent subfo
 - Put your docs from different field into different subfolders, such as sci, low,literature
 - Inside the `scipts` folder, edit the `ingest-data.ts` file, make sure in line 10 change to your specific file`const filePath = 'docs/sci'`, to avoid potential overwrite previous documents
 - In the `config` folder, replace the `PINECONE_NAME_SPACE` with a `namespace` where you'd like to store your embeddings on Pinecone when you run `pnpm run ingest`. This namespace will later be used for queries and retrieval. *this is quite important if you only want to retrival a specific domain of knowledge*
+- Remember to save all the above files before going to the next step
 
 2. Run the script `npm run ingest` to 'ingest' and embed your docs. If you run into errors troubleshoot below.
 
